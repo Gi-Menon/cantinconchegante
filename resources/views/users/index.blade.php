@@ -6,7 +6,7 @@
     <div class="card-header">Manage Users</div>
     <div class="card-body">
         @can('create-user')
-            <a href="{{ route('users.create') }}" class="btn btn-success btn-sm my-2"><i class="bi bi-plus-circle"></i> Add New User</a>
+            <a href="{{ route('users.create') }}" class="btn btn-bookstore btn-sm my-2"><i class="bi bi-plus-circle"></i> Add New User</a>
         @endcan
         <table class="table table-striped table-bordered">
             <thead>
@@ -39,16 +39,16 @@
 
                             @if (in_array('Super Admin', $user->getRoleNames()->toArray() ?? []) )
                                 @if (Auth::user()->hasRole('Super Admin'))
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-bookstore btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
                                 @endif
                             @else
                                 @can('edit-user')
-                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>   
+                                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-bookstore btn-sm"><i class="bi bi-pencil-square"></i> Edit</a>
                                 @endcan
 
                                 @can('delete-user')
                                     @if (Auth::user()->id!=$user->id)
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Do you want to delete this user?');"><i class="bi bi-trash"></i> Delete</button>
+                                        <button type="submit" class="btn btn-bookstore btn-sm" onclick="return confirm('Do you want to delete this user?');"><i class="bi bi-trash"></i> Delete</button>
                                     @endif
                                 @endcan
                             @endif
@@ -66,7 +66,9 @@
             </tbody>
         </table>
 
-        {{ $users->links() }}
+        <div class="catalog-pagination">
+            {{ $users->links() }}
+        </div>
 
     </div>
 </div>

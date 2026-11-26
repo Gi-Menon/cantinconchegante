@@ -146,6 +146,17 @@ body {
     color: #fff;
 }
 
+
+
+.btn-link-bookstore {
+    color: var(--bookstore-coffee);
+}
+
+.btn-link-bookstore:hover,
+.btn-link-bookstore:focus {
+    color: #4f3d2c;
+}
+
 .book-card {
     overflow: hidden;
     border: 1px solid rgba(109, 85, 63, .13);
